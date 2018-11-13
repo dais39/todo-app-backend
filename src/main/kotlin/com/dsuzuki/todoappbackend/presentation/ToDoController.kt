@@ -27,13 +27,11 @@ class ToDoController(val service: ToDoService) {
 
     @PostMapping
     fun registerToDo(@RequestBody requestForCreate: ToDoRequestForCreate){
-        // TODO requestBodyのvalidation
         service.registerToDo(ToDoRequestTranslator.translateFrom(requestForCreate))
     }
 
     @PutMapping("/{id}")
     fun updateToDo(@PathVariable id: String, @RequestBody requestForUpdate: ToDoRequestForUpdate) {
-        // TODO requestBodyのvalidation
         service.updateToDo(ToDoRequestTranslator.translateFrom(id, requestForUpdate))
     }
 
