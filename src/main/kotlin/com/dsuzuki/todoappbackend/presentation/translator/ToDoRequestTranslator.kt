@@ -11,7 +11,7 @@ class ToDoRequestTranslator {
 
         fun translateFrom(requestForCreate: ToDoRequestForCreate) = ToDoForCreate(requestForCreate.title)
 
-        fun translateFrom(id: String, requestForUpdate: ToDoRequestForUpdate) = ToDoForUpdate(
+        fun translateFrom(id: Long, requestForUpdate: ToDoRequestForUpdate) = ToDoForUpdate(
             id,
             requestForUpdate.title,
             requestForUpdate.isDone

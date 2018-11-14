@@ -8,11 +8,11 @@ interface ToDoRepository {
 
     fun getAll(): List<ToDo>
 
-    fun get(id: String): ToDo
+    fun get(id: Long): ToDo
 
     fun create(toDoForCreate: ToDoForCreate)
 
     fun change(toDoForUpdate: ToDoForUpdate)
 
-    fun delete(id: String)
+    fun delete(id: Long)
 }

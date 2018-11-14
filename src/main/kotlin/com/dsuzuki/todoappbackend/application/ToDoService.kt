@@ -8,12 +8,12 @@ interface ToDoService {
 
     fun getToDoList():List<ToDo>
 
-    fun getToDo(id: String): ToDo
+    fun getToDo(id: Long): ToDo
 
     fun registerToDo(toDoForCreate: ToDoForCreate)
 
     fun updateToDo(toDoForUpdate: ToDoForUpdate)
 
-    fun deleteToDo(id: String)
+    fun deleteToDo(id: Long)
 
 }

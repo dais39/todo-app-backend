@@ -8,7 +8,7 @@ class ToDoEntityTranslator {
 
     companion object {
 
-        fun translateFrom(toDoForCreate: ToDoForCreate) = ToDoEntity(toDoForCreate.title)
+        fun translateFrom(toDoForCreate: ToDoForCreate) = ToDoEntity(title = toDoForCreate.title)
 
         fun translateFrom(entity: ToDoEntity) = ToDo(
             entity.id,

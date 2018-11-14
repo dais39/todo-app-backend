@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/todo")
+@RestController
+@RequestMapping("/todo")
 class ToDoController(val service: ToDoService) {
 
     @GetMapping
     fun getToDoList(): List<ToDoResponse> =
-        service.getToDoList().map { ToDoResponseTranslator.translateFrom(it) }
+        service.getToDoList().map { ToDoResponseTranslator.translateFrom(it)}
 
     @GetMapping("/{id}")
-    fun getToDo(@PathVariable id: String): ToDoResponse =
+    fun getToDo(@PathVariable id: Long): ToDoResponse =
         ToDoResponseTranslator.translateFrom(service.getToDo(id))
 
     @PostMapping
@@ -31,10 +33,10 @@ class ToDoController(val service: ToDoService) {
     }
 
     @PutMapping("/{id}")
-    fun updateToDo(@PathVariable id: String, @RequestBody requestForUpdate: ToDoRequestForUpdate) {
+    fun updateToDo(@PathVariable id: Long, @RequestBody requestForUpdate: ToDoRequestForUpdate) {
         service.updateToDo(ToDoRequestTranslator.translateFrom(id, requestForUpdate))
     }
 
     @DeleteMapping("/{id}")
-    fun deleteToDo(@PathVariable id: String) = service.deleteToDo(id)
+    fun deleteToDo(@PathVariable id: Long) = service.deleteToDo(id)
 }

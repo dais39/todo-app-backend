@@ -11,11 +11,11 @@ class TodoServiceImpl(val repository: ToDoRepository) : ToDoService {
 
     override fun getToDoList(): List<ToDo> = repository.getAll()
 
-    override fun getToDo(id: String): ToDo = repository.get(id)
+    override fun getToDo(id: Long): ToDo = repository.get(id)
 
     override fun registerToDo(toDoForCreate: ToDoForCreate) = repository.create(toDoForCreate)
 
     override fun updateToDo(toDoForUpdate: ToDoForUpdate) = repository.change(toDoForUpdate)
 
-    override fun deleteToDo(id: String) = repository.delete(id)
+    override fun deleteToDo(id: Long) = repository.delete(id)
 }

@@ -14,7 +14,7 @@ class ToDoRepositoryAdapter(val repository: ToDoJpaRepository) : ToDoRepository 
         return repository.findAll().filterNotNull().map { ToDoEntityTranslator.translateFrom(it) }
     }
 
-    override fun get(id: String): ToDo {
+    override fun get(id: Long): ToDo {
         return ToDoEntityTranslator.translateFrom(repository.findById(id).get())
     }
 
@@ -30,7 +30,7 @@ class ToDoRepositoryAdapter(val repository: ToDoJpaRepository) : ToDoRepository 
         }
     }
 
-    override fun delete(id: String) {
+    override fun delete(id: Long) {
         repository.deleteById(id)
     }
 }
